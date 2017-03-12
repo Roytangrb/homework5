@@ -1,7 +1,7 @@
 <html>
 
 <head>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -9,14 +9,45 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <meta charset="utf-8">
     <title>Roytang's howework5</title>
-
+    <script src="echarts.min.js"></script>
+    <script src="xianggang.json"></script>
     <style>
 
     </style>
 </head>
 
 <body>
+    <!--chart1object-->
+    <div id="chart-panel" _echarts_instance_="ec_1489340227945" style="-webkit-tap-highlight-color: transparent; user-select: none; background: transparent;">
+        <div style="position: relative; overflow: hidden; width: 162px; height: 513px; padding: 0px; margin: 0px; border-width: 0px; cursor: pointer;"><canvas width="324" height="1026" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 162px; height: 513px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div>
+        <div style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1), top 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgba(50, 50, 50, 0.701961); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14px; font-family: sans-serif; line-height: 21px; padding: 5px; left: 130.725px; top: 90px;">新虹桥<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#c23531"></span>包租费 : 20<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#2f4554"></span>装修费
+            : 10<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#61a0a8"></span>保洁费 : 1<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#d48265"></span>物业费
+            : 0.1</div>
+    </div>
+    <!--chart1object-->
+    <!--<a href="http://www.map.gov.hk/static/z/tw/" gihs ".html"></a>-->
 
+    <script style="text/javascript">
+        $(function() {
+            $.getJSON('facility-sp7ntp.json', function(Court_no_en) {
+                var option = Court_no_en;
+                var myChart1 = echarts.init(document.getElementById('chart-panel'));
+                myChart1.setOption(option);
+            })
+        });
+    </script>
+    <!--<script>
+        var chart = echarts.init(document.getElementById('main'));
+        chart.setOption({
+            series: [{
+                type: 'map',
+                map: 'china'
+            }]
+        });
+    </script>-->
+    <footer>
+        <a href="http://www.lcsd.gov.hk/en/facilities/facilitieslist/landsports/free_outdoor.html">Free Outdoor Pitches/Courts</a>
+    </footer>
     <!--jquery-3-->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 </body>
