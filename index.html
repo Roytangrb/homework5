@@ -18,33 +18,186 @@
 
 <body>
     <!--chart1object-->
-    <div id="chart-panel" _echarts_instance_="ec_1489340227945" style="-webkit-tap-highlight-color: transparent; user-select: none; background: transparent;">
-        <div style="position: relative; overflow: hidden; width: 162px; height: 513px; padding: 0px; margin: 0px; border-width: 0px; cursor: pointer;"><canvas width="324" height="1026" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 162px; height: 513px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div>
-        <div style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1), top 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgba(50, 50, 50, 0.701961); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14px; font-family: sans-serif; line-height: 21px; padding: 5px; left: 130.725px; top: 90px;">新虹桥<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#c23531"></span>包租费 : 20<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#2f4554"></span>装修费
-            : 10<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#61a0a8"></span>保洁费 : 1<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#d48265"></span>物业费
-            : 0.1</div>
-    </div>
+    <div id="main1" style="width: 600px;height:300px;"></div>
+    <div id="main2" style="width: 1200px;height:500px;"></div>
+
     <!--chart1object-->
     <!--<a href="http://www.map.gov.hk/static/z/tw/" gihs ".html"></a>-->
 
     <script style="text/javascript">
         $(function() {
             $.getJSON('facility-sp7ntp.json', function(Court_no_en) {
-                var option = Court_no_en;
-                var myChart1 = echarts.init(document.getElementById('chart-panel'));
+                var court_no = Court_no_en;
+                var myChart1 = echarts.init(document.getElementById('main1'));
+
+                option = {
+                    title: {
+                        text: '2016年12月长宁区合规成本分析'
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                            type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                        }
+                    },
+                    legend: {
+                        data: ['包租费', '装修费', '保洁费', '物业费'],
+                        align: 'right',
+                        right: 10
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    xAxis: [{
+                        type: 'category',
+                        data: ['新虹桥', '中山公园', '虹桥', '镇宁路', '天山古北']
+                    }],
+                    yAxis: [{
+                        type: 'value',
+                        name: '总价(万元)',
+                        axisLabel: {
+                            formatter: '{value}'
+                        }
+                    }],
+                    series: [{
+                        name: '包租费',
+                        type: 'bar',
+                        data: [20, 12, 31, 34, 31]
+                    }, {
+                        name: '装修费',
+                        type: 'bar',
+                        data: [10, 20, 5, 9, 3]
+                    }, {
+                        name: '保洁费',
+                        type: 'bar',
+                        data: [1, 1, 2, 3, 1]
+                    }, {
+                        name: '物业费',
+                        type: 'bar',
+                        data: [0.1, 2, 3, 1, 0.5]
+                    }]
+                };
+
                 myChart1.setOption(option);
             })
         });
     </script>
-    <!--<script>
-        var chart = echarts.init(document.getElementById('main'));
-        chart.setOption({
-            series: [{
-                type: 'map',
-                map: 'china'
-            }]
+    <script style="text/javascript">
+        $(function() {
+            var myChart2 = echarts.init(document.getElementById('main2'));
+
+            var colors = ['#5793f3', '#d14a61', '#675bba', '#cf55b4', '#d8bf31', '#111110'];
+
+            option = {
+                color: colors,
+
+                title: {
+                    text: '能源使用按類別劃分'
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                grid: {
+                    right: '20%'
+                },
+                toolbox: {
+                    feature: {
+                        dataView: {
+                            show: true,
+                            readOnly: false
+                        },
+                        restore: {
+                            show: true
+                        },
+                        saveAsImage: {
+                            show: true
+                        }
+                    }
+                },
+                legend: {
+                    data: ['住宅', '商業', '工業', '運輸', '總計']
+                },
+                xAxis: [{
+                    type: 'category',
+                    axisTick: {
+                        alignWithLabel: true
+                    },
+                    data: ['2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014']
+                }],
+                yAxis: [{
+                    type: 'value',
+                    name: '能源使用<單位：太焦耳>',
+                    min: 0,
+                    max: 140000,
+                    position: 'left',
+                    axisLine: {
+                        lineStyle: {
+                            color: colors[4]
+                        }
+                    },
+                    axisLabel: {
+                        formatter: '{value} TJ'
+                    }
+                }, {
+                    type: 'value',
+                    name: '總計',
+                    min: 270000,
+                    max: 290000,
+                    position: 'right',
+                    axisLine: {
+                        lineStyle: {
+                            color: colors[5]
+                        }
+                    },
+                    splitLine: false,
+                    axisLabel: {
+                        formatter: '{value} TJ'
+                    }
+                }],
+                series: [{
+                    name: '住宅',
+                    type: 'bar',
+                    data: [53053, 54759, 53982, 54717, 55849, 57731, 58396, 59544, 60888, 59459, 62958]
+                }, {
+                    name: '商業',
+                    type: 'bar',
+                    yAxisIndex: 0,
+                    data: [105800, 107281, 111884, 113914, 113753, 114297, 116391, 117663, 119843, 119965, 121480]
+                }, {
+                    name: '工業',
+                    type: 'bar',
+                    yAxisIndex: 0,
+                    data: [20686, 19809, 18934, 17645, 17332, 16129, 16053, 14735, 14727, 14588, 14723]
+                }, {
+                    name: '運輸',
+                    type: 'bar',
+                    yAxisIndex: 0,
+                    data: [100776, 98689, 96404, 96165, 94504, 90643, 90889, 90774, 90423, 90198, 89999]
+                }, {
+                    name: '總計',
+                    type: 'line',
+                    yAxisIndex: 1,
+                    color: colors[5],
+                    data: [280315, 280537, 281204, 282440, 281438, 278799, 281729, 282716, 285881, 284210, 289160]
+                }]
+            };
+
+            myChart2.setOption(option);
         });
-    </script>-->
+
+        // <script>
+        //     var chart = echarts.init(document.getElementById('main'));
+        //     chart.setOption({
+        //         series: [{
+        //             type: 'map',
+        //             map: 'china'
+        //         }]
+        //     });
+        //
+    </script>
     <footer>
         <a href="http://www.lcsd.gov.hk/en/facilities/facilitieslist/landsports/free_outdoor.html">Free Outdoor Pitches/Courts</a>
     </footer>
