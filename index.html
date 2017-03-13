@@ -18,12 +18,12 @@
 
 <body>
     <div id="main1" style="width: 1200px;height:500px;"></div>
-    <div id="main2" style="width: 600px;height:300px;"></div>
+    <div class="col-md-12 col-lg-12" id="main2" style="width: 1200px;height:400px;"></div>
     <!--<a href="http://www.map.gov.hk/static/z/tw/" gihs ".html"></a>-->
 
     <script style="text/javascript">
         $(function() {
-            var myChart2 = echarts.init(document.getElementById('main1'));
+            var myChart1 = echarts.init(document.getElementById('main1'));
 
             var colors = ['#5793f3', '#d14a61', '#675bba', '#cf55b4', '#d8bf31', '#111110'];
 
@@ -121,18 +121,19 @@
                 }]
             };
 
-            myChart2.setOption(option);
+            myChart1.setOption(option);
         });
+    </script>
 
-        // <script>
-        //     var chart = echarts.init(document.getElementById('main'));
-        //     chart.setOption({
-        //         series: [{
-        //             type: 'map',
-        //             map: 'china'
-        //         }]
-        //     });
-        //
+    <!--chart2-script-->
+    <script style="text/javascript">
+        $(function() {
+            $.getJSON('option2.json', function(data) {
+                var option = data;
+                var myChart2 = echarts.init(document.getElementById('main2'));
+                myChart2.setOption(option);
+            })
+        });
     </script>
     <footer>
         <a href="http://www.lcsd.gov.hk/en/facilities/facilitieslist/landsports/free_outdoor.html">Free Outdoor Pitches/Courts</a>
