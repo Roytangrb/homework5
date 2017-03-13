@@ -140,6 +140,7 @@
         $(function() {
             $.getJSON('option3.json', function(data) {
                 var option3 = data;
+                console.log(option3);
             })
 
             var myChart3 = echarts.init(document.getElementById('main3'));
@@ -162,7 +163,17 @@
             PatternImgC.src = PatternSrcC;
             PatternImgD.src = PatternSrcD;
             PatternImgE.src = PatternSrcE;
+
             PatternImgF.src = PatternSrcF;
+            PatternImgG.src = PatternSrcG;
+            PatternImgH.src = PatternSrcH;
+            PatternImgI.src = PatternSrcI;
+            PatternImgJ.src = PatternSrcJ;
+
+            PatternImgK.src = PatternSrcK;
+            PatternImgL.src = PatternSrcL;
+            PatternImgK.src = PatternSrcM;
+            PatternImgL.src = PatternSrcN;
 
             var itemStyleA = {
                 normal: {
@@ -215,6 +226,10 @@
 
             option = {
                 color: ['#c03a2a', '#16a185', '#2c3f50', , '#666'],
+                title: {
+                    text: '所有能源最終用途',
+                    subtext: '<單位：太焦耳 Unit : Terajoule>',
+                },
                 tooltip: {
                     trigger: 'axis',
                     axisPointer: { // 坐标轴指示器，坐标轴触发有效
@@ -223,67 +238,97 @@
                 },
                 legend: {
                     x: 'right',
-                    data: ['20', '50', '80', '100', '150', '300', '500', '800', '1000']
+                    data: ['空氣調節', '煮食', '工業生產／設備', '照明', '冷凍', '熱水', '貨車', '巴士', '的士', '汽車', '電單車', '鐵路', '船隻', '其他']
                 },
                 yAxis: [{
                     type: 'value'
                 }],
                 xAxis: [{
                     type: 'category',
-                    data: ['产品1', '产品2', '产品3', '产品4', '产品5', '产品6', '产品7', '产品8']
+                    data: ['2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014']
                 }],
                 series: [{
-                    name: '20',
+                    name: '空氣調節',
                     type: 'bar',
                     stack: '总量',
-                    barWidth: '40px',
-                    data: [0, 212, 101, 0, 0, 0, 120, 0]
+                    data: [46186, 46658, 46502, 45298, 43392, 44117, 45511, 46204, 47158, 45562, 50129]
                 }, {
-                    name: '50',
+                    name: '煮食',
                     type: 'bar',
                     stack: '总量',
-                    data: [0, 232, 251, 0, 0, 0, 10, 0]
+                    data: [31469, 30946, 31836, 32885, 34023, 33302, 33379, 32882, 32626, 32792, 32674]
                 }, {
-                    name: '80',
+                    name: '工業生產／設備',
                     type: 'bar',
                     stack: '总量',
-                    data: [0, 232, 231, 134, 190, 0, 110, 0]
-                }, {
-                    name: '100',
-                    type: 'bar',
-                    stack: '总量',
-                    data: [0, 132, 101, 0, 0, 150, 210, 0],
+                    data: [15487, 15994, 16465, 17071, 17734, 17173, 17413, 17855, 18332, 18669, 19065],
                     itemStyle: itemStyleA
                 }, {
-                    name: '150',
+                    name: '照明',
                     type: 'bar',
                     stack: '总量',
-                    data: [120, 252, 201, 134, 60, 0, 150, 0],
+                    data: [22190, 22536, 21608, 20372, 18965, 19199, 19563, 20045, 20411, 20446, 20421],
                     itemStyle: itemStyleB
                 }, {
-                    name: '300',
+                    name: '冷凍',
                     type: 'bar',
                     stack: '总量',
-                    data: [120, 0, 0, 184, 70, 0, 0, 90],
+                    data: [6796, 7446, 7918, 8496, 9121, 9244, 9213, 8962, 8834, 8716, 9145],
                     itemStyle: itemStyleC
                 }, {
-                    name: '500',
+                    name: '熱水',
                     type: 'bar',
                     stack: '总量',
-                    data: [120, 0, 0, 174, 10, 230, 0, 0],
+                    data: [12396, 12695, 12776, 13172, 13788, 13824, 13936, 14119, 14113, 14226, 14241],
                     itemStyle: itemStyleD
                 }, {
-                    name: '800',
+                    name: '貨車',
                     type: 'bar',
                     stack: '总量',
-                    data: [220, 0, 0, 134, 70, 0, 0, 0],
+                    data: [33768, 32830, 32551, 31771, 30438, 28501, 28585, 28010, 26941, 25534, 25009],
                     itemStyle: itemStyleE
                 }, {
-                    name: '1000',
+                    name: '巴士',
                     type: 'bar',
                     stack: '总量',
-                    data: [0, 0, 0, 0, 0, 0, 0, 90],
+                    data: [21326, 20389, 20301, 19832, 18971, 19150, 18842, 18911, 19128, 19144, 18659],
                     itemStyle: itemStyleF
+                }, {
+                    name: '的士',
+                    type: 'bar',
+                    stack: '总量',
+                    data: [10844, 12505, 13797, 14102, 15142, 13131, 13373, 13593, 13469, 13319, 14133],
+                    itemStyle: itemStyleE
+                }, {
+                    name: '汽車',
+                    type: 'bar',
+                    stack: '总量',
+                    data: [16987, 16682, 16267, 17118, 17059, 17449, 18247, 18879, 19561, 21158, 21085],
+                    itemStyle: itemStyleE
+                }, {
+                    name: '電單車',
+                    type: 'bar',
+                    stack: '总量',
+                    data: [440, 454, 426, 463, 480, 465, 436, 424, 423, 406, 426],
+                    itemStyle: itemStyleE
+                }, {
+                    name: '鐵路',
+                    type: 'bar',
+                    stack: '总量',
+                    data: [4996, 5183, 2454, 2506, 2527, 2529, 2542, 2609, 2722, 2796, 2875],
+                    itemStyle: itemStyleE
+                }, {
+                    name: '船隻',
+                    type: 'bar',
+                    stack: '总量',
+                    data: [12217, 10462, 10413, 10158, 9680, 9228, 8672, 8245, 8077, 7739, 7705],
+                    itemStyle: itemStyleE
+                }, {
+                    name: '其他',
+                    type: 'bar',
+                    stack: '总量',
+                    data: [45213, 45757, 47890, 49197, 50117, 51487, 52019, 51977, 54086, 53703, 53592],
+                    itemStyle: itemStyleE
                 }]
             };
             myChart3.setOption(option);
