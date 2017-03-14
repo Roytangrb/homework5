@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" style="position: relative">
         <h1 style="text-align: center">2004年－2014年香港能源用途</h1><br>
         <h3 style="text-align: right">By Roytang</h3>
         <a href="https://data.gov.hk/tc-data/dataset/hk-emsd-emsd1-energy-end-use-data">
@@ -153,6 +153,9 @@
             };
 
             myChart1.setOption(option);
+            window.onresize = function() {
+                myChart1.resize();
+            }
         });
     </script>
 
@@ -163,6 +166,9 @@
                 var option = data;
                 var myChart2 = echarts.init(document.getElementById('main2'));
                 myChart2.setOption(option);
+                window.onresize = function() {
+                    myChart2.resize();
+                }
             })
         });
     </script>
