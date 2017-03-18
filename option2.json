@@ -18,7 +18,7 @@
 
     "options": [{
             "title": {
-                "text": "能源使用按類別劃分(百分比)",
+                "text": "能源使用按類別劃分(％)",
                 "subtext": "<2004-2014>"
             },
             "color": ["cadetblue", "yellow", "green", "saddlebrown", "palegoldenrod"],
