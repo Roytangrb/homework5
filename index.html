@@ -200,9 +200,9 @@
     <script type="text/javascript">
         $(function() {
             $.getJSON('option2.json', function(data) {
-                var option = data;
+                var option2 = data;
                 var myChart2 = echarts.init(document.getElementById('main2'));
-                myChart2.setOption(option);
+                myChart2.setOption(option2);
             })
         });
     </script>
@@ -248,7 +248,7 @@
 
             var colors = ['#f95994', '#c03a2a', '#16a185', '#2c3f50', '#666', '#ce38f7', '#c9ef83', '#55e8ca', '#e8e855', '#6c34d3', '#33d2bd', '#e25428', '#932937', '#424472']
 
-            option = {
+            option3 = {
                 color: colors,
                 title: {
                     text: '所有能源最終用途',
@@ -357,16 +357,14 @@
                     //itemStyle: itemStyling[13]
                 }]
             };
-            myChart3.setOption(option);
+            myChart3.setOption(option3);
         });
         $(window).resize(function() {
             var myChart3 = echarts.init(document.getElementById('main3'));
-            myChart3.setOption(option);
+            myChart3.setOption(option3);
         });
     </script>
-    <script>
-        $(wind)
-    </script>
+
     <footer>
         <hr>
         <div class="col-xs-12">
