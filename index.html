@@ -28,10 +28,6 @@
             border-top-left-radius: 0px;
             border-top-right-radius: 0px;
         }
-        
-        .cent {
-            margin: auto;
-        }
     </style>
 </head>
 
@@ -48,7 +44,7 @@
             <hr>
         </div>
         <hr>
-        <div class="col-xs-12" id="main1" style="width: 1200px;height:500px;"></div>
+        <div class="col-xs-12" id="main1" style="width: 100%;height:500px;"></div>
         <br>
         <div class="col-xs-12 para1">
             <br>
@@ -60,7 +56,7 @@
         <div class="row">
             <div class="col-xs-8 col-lg-8" id="main2" style="width: 755px;height:300px;">
             </div>
-            <div class="col-lg-4 col-xs-12 cent para2" style="width: 400px;height:300px;">
+            <div class="col-lg-4 col-xs-12 para2" id="text2" style="width: 400px;height:300px;">
                 <h5 style="text-align: center">What has happened between 2006 and 2009?</h5>
                 <p>Within the year of 2006, the commercial use of enegy has reach around 40% and maintained the same till the beginning of 2009, when the proportion that commercial use continue to go up. But what has happened within these years, contributing
                     to the downward slope of the total enegy use graph? As the enegy use might reflect the performance of a city's economy, we might easily come up with the idea that whether the Financial Crisis inccured form 2007 to 2008 served as the
@@ -69,7 +65,7 @@
         </div>
         <br>
         <hr>
-        <div class="col-xs-12" id="main3" style="width: 1200px;height:600px;"> </div>
+        <div class="col-xs-12" id="main3" style="width: 100%;height:600px;"> </div>
 
     </div>
     <!--<a href="http://www.map.gov.hk/static/z/tw/" gihs ".html"></a>-->
@@ -192,6 +188,10 @@
                     }
                 }]
             };
+            myChart1.setOption(option);
+        });
+        $(window).resize(function() {
+            var myChart1 = echarts.init(document.getElementById('main1'));
             myChart1.setOption(option);
         });
     </script>
@@ -359,6 +359,13 @@
             };
             myChart3.setOption(option);
         });
+        $(window).resize(function() {
+            var myChart3 = echarts.init(document.getElementById('main3'));
+            myChart3.setOption(option);
+        });
+    </script>
+    <script>
+        $(wind)
     </script>
     <footer>
         <hr>
